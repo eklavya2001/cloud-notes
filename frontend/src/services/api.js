@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://cloud-notebook-qnnx.onrender.com",
+  baseURL: "https://cloud-notes-ycsk.onrender.com",
   withCredentials: true,
 });
 
