@@ -1,5 +1,5 @@
 const User = require("../models/user");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const CryptoJs = require("crypto-js");
 const { setUser } = require("../service/auth");
 require("dotenv").config();
