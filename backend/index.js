@@ -20,7 +20,7 @@ app.get("*", (req, res) => {
 const { connectToMongo } = require("./connection");
 connectToMongo(mongourl);
 
-app.use(cors());
+app.use(cors({ origin: "https://cloud-notes-1.onrender.com/" }));
 
 app.use(express.json());
 app.use(cookieParser());
