@@ -4,7 +4,7 @@ const app = express();
 const path = require("path");
 const cors = require("cors");
 const port = process.env.PORT || 5000;
-const cors = require("cors");
+
 const authRoutes = require("./routes/auth");
 const noteRoutes = require("./routes/note");
 const cookieParser = require("cookie-parser");
