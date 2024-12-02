@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "preinstall": "npm install vite --save-dev",
-    "build": "vite build",
+    "build": "vite build --debug",
     "lint": "eslint .",
     "preview": "vite preview"
   },
