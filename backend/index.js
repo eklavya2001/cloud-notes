@@ -8,6 +8,7 @@ const authRoutes = require("./routes/auth");
 const noteRoutes = require("./routes/note");
 const cookieParser = require("cookie-parser");
 const { checkForAuthentication } = require("./middlewares/auth");
+const mongourl = process.env.MONGO_URI;
 
 app.use(express.static(path.join(__dirname, "../build")));
 
@@ -16,7 +17,7 @@ app.get("*", (req, res) => {
 });
 
 const { connectToMongo } = require("./connection");
-connectToMongo("mongodb://127.0.0.1:27017/cloud-notebook");
+connectToMongo(mongourl);
 
 app.use(express.json());
 app.use(cookieParser());
