@@ -16,18 +16,19 @@ app.use(express.static(path.join(__dirname, "../build")));
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../build", "index.html"));
 });
-
-const { connectToMongo } = require("./connection");
-connectToMongo(mongourl);
+app.options("*", cors()); // This will handle OPTIONS preflight requests
 
 app.use(
   cors({
-    // origin: ["https://cloud-notes-1.onrender.com"], // Replace with your frontend URL
-    // methods: ["GET", "POST", "PUT", "DELETE"],
-    // allowedHeaders: ["Content-Type", "Authorization"], // Adjust as per your app's needs
+    origin: ["https://cloud-notes-1.onrender.com"], // Replace with your frontend URL
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"], // Adjust as per your app's needs
     credentials: true, // If you're using cookies or sessions
   })
 );
+
+const { connectToMongo } = require("./connection");
+connectToMongo(mongourl);
 
 app.use(express.json());
 app.use(cookieParser());
