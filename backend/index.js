@@ -22,9 +22,9 @@ connectToMongo(mongourl);
 
 app.use(
   cors({
-    origin: ["https://cloud-notes-1.onrender.com"], // Replace with your frontend URL
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"], // Adjust as per your app's needs
+    // origin: ["https://cloud-notes-1.onrender.com"], // Replace with your frontend URL
+    // methods: ["GET", "POST", "PUT", "DELETE"],
+    // allowedHeaders: ["Content-Type", "Authorization"], // Adjust as per your app's needs
     credentials: true, // If you're using cookies or sessions
   })
 );
