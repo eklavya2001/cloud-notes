@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const path = require("path");
+const cors = require("cors");
 const port = process.env.PORT || 5000;
 const cors = require("cors");
 const authRoutes = require("./routes/auth");
@@ -18,6 +19,8 @@ app.get("*", (req, res) => {
 
 const { connectToMongo } = require("./connection");
 connectToMongo(mongourl);
+
+app.use(cors());
 
 app.use(express.json());
 app.use(cookieParser());
