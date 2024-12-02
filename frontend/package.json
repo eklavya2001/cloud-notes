@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "preinstall": "npm install vite --save-dev",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
