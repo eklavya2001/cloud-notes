@@ -10,13 +10,15 @@ function Login({ setIsAuthenticated }) {
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        const encryptedPassword = CryptoJS.AES.encrypt(password, "Ekchua@123").toString();
+        const key = process.env.REACT_APP_SECRET_KEY
+        const encryptedPassword = CryptoJS.AES.encrypt(password, key).toString();
 
         try {
             const response = await api.post('/api/auth/login', { email, password: encryptedPassword });
             if (response.status === 200) {
                 alert("Successfully logged in");
                 const authCheck = await api.get('/api/auth/check');
+                log
                 setIsAuthenticated(authCheck.data.isAuthenticated);
                 navigate('/dashboard');
             }
