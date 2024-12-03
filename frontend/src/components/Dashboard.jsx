@@ -21,7 +21,7 @@ function Dashboard() {
     async function handleCreateNote(e) {
         e.preventDefault();
         try {
-            const response = await api.post('/notes', { title: notes.title, content: notes.content });
+            const response = await api.post('/api/notes', { title: notes.title, content: notes.content });
             setTotalContent([...totalContent, response.data]);
             setNote({ title: "", content: "" });
         } catch (error) {

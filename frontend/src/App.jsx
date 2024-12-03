@@ -13,7 +13,7 @@ function App() {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const response = await api.get('api/auth/check'); // Backend route to verify auth
+        const response = await api.get('/api/auth/check'); // Backend route to verify auth
         setIsAuthenticated(response.data.isAuthenticated);
       } catch (error) {
         console.error('Not authenticated:', error);
@@ -26,7 +26,7 @@ function App() {
 
   const handleLogout = async () => {
     try {
-      await api.post('/auth/logout'); // Clear token in cookie
+      await api.post('/api/auth/logout'); // Clear token in cookie
       setIsAuthenticated(false);
     } catch (error) {
       console.error('Error during logout:', error);
