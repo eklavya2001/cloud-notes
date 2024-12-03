@@ -11,10 +11,10 @@ const cookieParser = require("cookie-parser");
 const { checkForAuthentication } = require("./middlewares/auth");
 const mongourl = process.env.MONGO_URI;
 
-app.use(express.static(path.join(__dirname, "../build")));
+app.use(express.static(path.join(__dirname, "dist")));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../build", "index.html"));
+  res.sendFile(path.join(__dirname, "dist", "index.html"));
 });
 // app.options("*", cors()); // This will handle OPTIONS preflight requests
 
