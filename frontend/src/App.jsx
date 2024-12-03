@@ -13,7 +13,7 @@ function App() {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const response = await api.get('/auth/check'); // Backend route to verify auth
+        const response = await api.get('api/auth/check'); // Backend route to verify auth
         setIsAuthenticated(response.data.isAuthenticated);
       } catch (error) {
         console.error('Not authenticated:', error);
