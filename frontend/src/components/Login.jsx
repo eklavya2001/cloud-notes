@@ -13,7 +13,7 @@ function Login({ setIsAuthenticated }) {
         const encryptedPassword = CryptoJS.AES.encrypt(password, "Ekchua@123").toString();
 
         try {
-            const response = await api.post('/auth/login', { email, password: encryptedPassword });
+            const response = await api.post('api/auth/login', { email, password: encryptedPassword });
             if (response.status === 200) {
                 alert("Successfully logged in");
                 const authCheck = await api.get('/auth/check');
