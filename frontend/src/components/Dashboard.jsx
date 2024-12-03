@@ -8,7 +8,7 @@ function Dashboard() {
     useEffect(() => {
         const fetchNotes = async () => {
             try {
-                const response = await api.get('api/notes');
+                const response = await api.get('/api/notes');
                 setTotalContent(response.data);
             } catch (error) {
                 console.error(error);

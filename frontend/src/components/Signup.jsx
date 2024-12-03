@@ -12,7 +12,7 @@ function Signup() {
     const handleSignup = async (e) => {
         e.preventDefault();
         try {
-            await api.post('api/auth/signup', { email, password: encryptedPassword }, { withCredentials: true });
+            await api.post('/api/auth/signup', { email, password: encryptedPassword }, { withCredentials: true });
             alert('Signup successful! Please login');
             navigate('/');
         } catch (error) {
