@@ -16,7 +16,7 @@ function Login({ setIsAuthenticated }) {
             const response = await api.post('/api/auth/login', { email, password: encryptedPassword });
             if (response.status === 200) {
                 alert("Successfully logged in");
-                const authCheck = await api.get('/auth/check');
+                const authCheck = await api.get('/api/auth/check');
                 setIsAuthenticated(authCheck.data.isAuthenticated);
                 navigate('/dashboard');
             }
