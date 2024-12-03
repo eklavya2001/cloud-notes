@@ -4,30 +4,41 @@ import api from '../services/api';
 import CryptoJS from 'crypto-js';
 
 function Login({ setIsAuthenticated }) {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        // const key = process.env.REACT_APP_SECRET_KEY
-        // console.log(key)
         const encryptedPassword = CryptoJS.AES.encrypt(password, "Ekchua@123").toString();
-        console.log(encryptedPassword);
 
         try {
-            const response = await api.post('/api/auth/login', { email, password: encryptedPassword });
+            const response = await api.post(
+                "/api/auth/login",
+                { email, password: encryptedPassword },
+                { withCredentials: true }
+            );
+
             if (response.status === 200) {
                 alert("Successfully logged in");
-                const authCheck = await api.get('/api/auth/check');
-                console.log(authCheck.data.isAuthenticated)
-                setIsAuthenticated(authCheck.data.isAuthenticated);
-                navigate('/dashboard');
+
+                // Wait a bit to ensure cookies are set before checking authentication
+                setTimeout(async () => {
+                    try {
+                        const authCheck = await api.get("/api/auth/check", { withCredentials: true });
+                        console.log(authCheck.data.isAuthenticated);
+                        setIsAuthenticated(authCheck.data.isAuthenticated);
+                        navigate("/dashboard");
+                    } catch (error) {
+                        console.error("Auth check failed after login:", error);
+                    }
+                }, 500); // Delay of 500ms
             }
         } catch (error) {
-            alert('Invalid credentials or unexpected error');
+            alert("Invalid credentials or unexpected error");
         }
     };
+
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-indigo-600 via-blue-500 to-teal-400">
@@ -80,4 +91,4 @@ function Login({ setIsAuthenticated }) {
     );
 }
 
-export default Login;
+export default Login
