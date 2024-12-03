@@ -22,7 +22,7 @@ function App() {
     };
 
     checkAuth();
-  }, [isAuthenticated]);
+  }, []);
 
   const handleLogout = async () => {
     try {
