@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, "../build")));
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../build", "index.html"));
 });
-app.options("*", cors()); // This will handle OPTIONS preflight requests
+// app.options("*", cors()); // This will handle OPTIONS preflight requests
 
 app.use(
   cors({
