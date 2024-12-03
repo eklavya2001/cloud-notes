@@ -35,7 +35,13 @@ async function handleUserLogin(req, res) {
   }
 
   const token = setUser(user);
-  res.cookie("uid", token, { httpOnly: true, secure: false });
+  console.log("Cookie set at:", new Date().toISOString());
+  res.cookie("uid", token, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production", // Secure flag for HTTPS
+    sameSite: process.env.NODE_ENV === "production" ? "strict" : "lax",
+  });
+
   return res.status(200).json({ message: "login successful" });
 }
 
