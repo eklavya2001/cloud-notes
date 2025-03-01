@@ -41,14 +41,14 @@ function Login({ setIsAuthenticated }) {
 
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-indigo-600 via-blue-500 to-teal-400">
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-indigo-600 via-blue-500 to-yellow-400">
             <div className="bg-white p-10 rounded-2xl shadow-xl max-w-lg w-full relative z-10">
-                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-indigo-500 to-teal-500 opacity-20 rounded-2xl -z-10"></div>
-                <h2 className="text-4xl font-bold text-center text-gray-800 mb-6">Welcome Back to Cloud Notebook</h2>
+                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-indigo-500 to-red-500 opacity-20 rounded-2xl -z-10"></div>
+                <h2 className="text-4xl font-bold text-center text-gray-800 mb-7">Welcome Back to Cloud Notebook</h2>
                 <p className="text-center text-lg text-gray-600 mb-8">
                     Securely store your notes, organize them, and access them from anywhere. Let your ideas flow seamlessly!
                 </p>
-                <form onSubmit={handleLogin} className="space-y-6">
+                <form onSubmit={handleLogin} className="space-y-4">
                     <div>
                         <input
                             type="text"
@@ -86,7 +86,7 @@ function Login({ setIsAuthenticated }) {
                 </div>
             </div>
 
-            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-indigo-500 to-teal-500 opacity-30 -z-10 rounded-2xl"></div>
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-indigo-500 to-teal-500 opacity-30 -z-10 rounded-2xl">hello</div>
         </div>
     );
 }
