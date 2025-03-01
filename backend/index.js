@@ -21,9 +21,11 @@ const allowedOrigins = process.env.FRONTEND_URL || "*"; // Default to allow all 
 //     credentials: true,
 //   })
 // );
+app.options("*", cors()); // Allow all preflight requests (OPTIONS)
+
 app.use(
   cors({
-    origin: allowedOrigins.split(","), // Support multiple origins if needed
+    origin: "https://cloud-notebook-k6zl.onrender.com", // Support multiple origins if needed
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
@@ -31,14 +33,6 @@ app.use(
 );
 
 // **1. CORS Middleware**
-app.use(
-  cors({
-    origin: ["https://cloud-notes-1.onrender.com"], // Your frontend URL
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true, // Required for cookies/sessions
-  })
-);
 
 // **2. Body Parsing and Cookie Parsing**
 app.use(express.json()); // Parse JSON bodies
