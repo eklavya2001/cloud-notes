@@ -21,7 +21,7 @@ const allowedOrigins = process.env.FRONTEND_URL || "*"; // Default to allow all 
 //     credentials: true,
 //   })
 // );
-app.options("*", cors()); // Allow all preflight requests (OPTIONS)
+// app.options("*", cors()); // Allow all preflight requests (OPTIONS)
 
 app.use(
   cors({
