@@ -13,7 +13,7 @@ function Signup() {
         e.preventDefault();
         try {
             // await api.post('/api/auth/signup', { email, password: encryptedPassword }, { withCredentials: true });
-            const response = await fetch("https://cloud-notes-backend-jzd4.onrender.com", {
+            const response = await fetch("https://cloud-notes-backend-jzd4.onrender.com/api/auth/signup", {
                 method: "GET",
                 credentials: "include", // This is necessary for cookies or authentication headers if required
             });
