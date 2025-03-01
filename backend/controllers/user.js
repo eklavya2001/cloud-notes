@@ -38,8 +38,8 @@ async function handleUserLogin(req, res) {
   console.log("Cookie set at:", new Date().toISOString());
   res.cookie("uid", token, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production", // Secure flag for HTTPS
-    sameSite: process.env.NODE_ENV === "production" ? "strict" : "lax",
+    secure: true, // Secure flag for HTTPS
+    sameSite: "None",
   });
 
   return res.status(200).json({ message: "login successful" });
