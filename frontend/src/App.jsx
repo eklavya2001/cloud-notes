@@ -25,7 +25,7 @@ function App() {
 
   const handleLogout = async () => {
     try {
-      await api.post("/api/auth/logout", {}, { withCredentials: true });
+      await api.get("/api/auth/logout", {}, { withCredentials: true });
       setIsAuthenticated(false);
     } catch (error) {
       console.error("Error during logout:", error);

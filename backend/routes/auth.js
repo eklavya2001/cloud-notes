@@ -14,7 +14,7 @@ router.post("/signup", handleUserSignup);
 //login route
 router.post("/login", handleUserLogin);
 // Logout route
-router.post("/logout", (req, res) => {
+router.get("/logout", (req, res) => {
   res.clearCookie("uid"); // Clear the JWT token cookie
   res.status(200).json({ message: "Logout successful" });
 });
