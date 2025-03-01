@@ -12,11 +12,11 @@ function Signup() {
     const handleSignup = async (e) => {
         e.preventDefault();
         try {
-            // await api.post('/api/auth/signup', { email, password: encryptedPassword }, { withCredentials: true });
-            const response = await fetch("https://cloud-notes-backend-jzd4.onrender.com/api/auth/signup", {
-                method: "POST",
-                credentials: "include", // This is necessary for cookies or authentication headers if required
-            });
+            const response = await api.post('/api/auth/signup', { email, password: encryptedPassword }, { withCredentials: true });
+            // const response = await fetch("https://cloud-notes-backend-jzd4.onrender.com/api/auth/signup", {
+            //     method: "POST",
+            //     credentials: "include", // This is necessary for cookies or authentication headers if required
+            // });
             if (response.status == 201) {
                 alert('Signup successful! Please login');
                 navigate('/');
