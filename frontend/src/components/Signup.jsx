@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import api from '../services/api';
 import CryptoJS from 'crypto-js';
 
@@ -66,9 +66,9 @@ function Signup() {
                 <div className="mt-6 text-center">
                     <p className="text-sm text-gray-600">
                         Already have an account?{' '}
-                        <a href="/" className="text-indigo-600 hover:underline">
+                        <Link to="/" className="text-indigo-600 hover:underline">
                             Login here
-                        </a>
+                        </Link>
                     </p>
                 </div>
             </div>
